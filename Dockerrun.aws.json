@@ -1,6 +1,6 @@
 {
     "AWSEBDockerrunVersion": 2,
-    "containerDefinations": [
+    "containerDefinitions": [
         {
             "name": "client",
             "image": "kkaneki/client",
@@ -26,15 +26,15 @@
             "name": "nginx",
             "image": "kkaneki/nginx",
             "hostname": "nginx",
+            "links": ["client","server"],
+            "memory": 128,
             "essential": true,
             "portMappings" : [
                 {
                     "hostPort": 80,
                     "containerPort": 80
                 }
-            ],
-            "links": ["client","server"],
-            "memory": 128
+            ]
         }
     ]
 }
