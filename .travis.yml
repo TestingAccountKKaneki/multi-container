@@ -12,7 +12,7 @@ after_success:
   - docker build -t kkaneki/server ./server
   - docker build -t kkaneki/worker ./worker
   # LOGIN TO docker hub
-  - echo "$DOCKER_PASSWORD" | docker login -u "$kkaneki" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push kkaneki/client
   - docker push kkaneki/nginx
   - docker push kkaneki/server
